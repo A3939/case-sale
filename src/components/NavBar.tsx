@@ -4,7 +4,7 @@ import { buttonVariants } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-const NavBar = async () => {
+const Navbar = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
@@ -95,4 +95,4 @@ const NavBar = async () => {
   );
 };
 
-export default NavBar;
+export default Navbar;

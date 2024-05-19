@@ -1,4 +1,4 @@
-import { db } from "@/app/db";
+import { db } from "@/db";
 import { notFound } from "next/navigation";
 import DesignPreview from "./DesignPreview";
 
@@ -8,8 +8,9 @@ interface PageProps {
   };
 }
 
-async function Page({ searchParams }: PageProps) {
+const Page = async ({ searchParams }: PageProps) => {
   const { id } = searchParams;
+
   if (!id || typeof id !== "string") {
     return notFound();
   }
@@ -18,9 +19,11 @@ async function Page({ searchParams }: PageProps) {
     where: { id },
   });
 
-  if (!configuration) return notFound();
+  if (!configuration) {
+    return notFound();
+  }
 
   return <DesignPreview configuration={configuration} />;
-}
+};
 
 export default Page;

@@ -1,7 +1,7 @@
 "use server";
 
-import { db } from "@/app/db";
 import { BASE_PRICE, PRODUCT_PRICES } from "@/config/products";
+import { db } from "@/db";
 import { stripe } from "@/lib/stripe";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Order } from "@prisma/client";

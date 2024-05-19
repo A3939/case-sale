@@ -29,6 +29,7 @@ const Page = () => {
 
   const onDropRejected = (rejectedFiles: FileRejection[]) => {
     const [file] = rejectedFiles;
+
     setIsDragOver(false);
 
     toast({
@@ -61,8 +62,8 @@ const Page = () => {
           onDropAccepted={onDropAccepted}
           accept={{
             "image/png": [".png"],
-            "image/jpg": [".jpg"],
             "image/jpeg": [".jpeg"],
+            "image/jpg": [".jpg"],
           }}
           onDragEnter={() => setIsDragOver(true)}
           onDragLeave={() => setIsDragOver(false)}
@@ -104,6 +105,7 @@ const Page = () => {
                   </p>
                 )}
               </div>
+
               {isPending ? null : (
                 <p className="text-xs text-zinc-500">PNG, JPG, JPEG</p>
               )}
