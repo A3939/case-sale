@@ -19,7 +19,7 @@ function Phone({ className, imgSrc, dark = false, ...props }: PhoneProps) {
         src={
           dark
             ? "/phone-template-dark-edges.png"
-            : "phone-template-white-edges.png"
+            : "/phone-template-white-edges.png"
         }
         className="pointer-events-none z-50 select-none"
         alt="phone image"
