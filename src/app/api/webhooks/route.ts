@@ -31,7 +31,7 @@ export async function POST(req: Request) {
         throw new Error("Missing user email");
       }
 
-      const session = event.data.object as Stripe.Checkout.Session;
+      const session = event.data.object;
 
       const { userId, orderId } = session.metadata || {
         userId: null,
@@ -45,7 +45,8 @@ export async function POST(req: Request) {
       console.log("shipping session::::", session);
 
       const billingAddress = session.customer_details!.address;
-      const shippingAddress = session.shipping_details!.address;
+      // @ts-ignore
+      const shippingAddress = session.shipping!.address;
 
       const updatedOrder = await db.order.update({
         where: {
