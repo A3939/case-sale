@@ -22,6 +22,7 @@ export async function POST(req: Request) {
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
+    console.log("event:::", event.data.object);
 
     if (event.type === "checkout.session.completed") {
       if (!event.data.object.customer_details?.email) {
@@ -38,6 +39,8 @@ export async function POST(req: Request) {
       if (!userId || !orderId) {
         throw new Error("Invalid request metadata");
       }
+      console.log("addresss::::", session.customer_details);
+      console.log("shipping addresss::::", session.shipping_details);
 
       const billingAddress = session.customer_details!.address;
       const shippingAddress = session.shipping_details!.address;
