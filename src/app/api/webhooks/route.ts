@@ -42,7 +42,7 @@ export async function POST(req: Request) {
         throw new Error("Invalid request metadata");
       }
       console.log("addresss::::", session.customer_details);
-      console.log("shipping addresss::::", session.shipping_details);
+      console.log("shipping session::::", session);
 
       const billingAddress = session.customer_details!.address;
       const shippingAddress = session.shipping_details!.address;
