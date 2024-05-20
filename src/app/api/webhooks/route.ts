@@ -22,9 +22,11 @@ export async function POST(req: Request) {
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
-    console.log("event:::", event.data.object);
+    console.log("event:::", event);
+    console.log("event type:::", event.type);
 
     if (event.type === "checkout.session.completed") {
+      console.log("event data:::", event.data.object.customer_details);
       if (!event.data.object.customer_details?.email) {
         throw new Error("Missing user email");
       }
