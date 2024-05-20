@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
-    console.log("event:::", event);
+
     console.log("event type:::", event.type);
 
     if (event.type === "checkout.session.completed") {
