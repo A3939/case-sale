@@ -1,4 +1,4 @@
-This is a [Demo Link]((https://case-sale.vercel.app/)) of project.
+This is a [Demo Link](https://case-sale.vercel.app/) of project.
 
 ## Getting Started
 
